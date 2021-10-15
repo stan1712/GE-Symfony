@@ -10,6 +10,8 @@ Gestionnaire d'entreprise avec Symfony - TP EPSI 2021
 
 ## 🏗️ Installation
 
+Modifiez dans le ``.env`` la ligne 31 en indiquant votre base de données, son port, etc.
+
 Utilisez ces trois commandes après avoir cloné le repo pour installer le projet chez vous :
 
 ```bash
