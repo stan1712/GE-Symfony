@@ -1,0 +1,10 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    globals:
+        categoriesVar: '@App\Twig\GlobalsVar'
+        companiesVar: '@App\Twig\GlobalsVar'
+
+
+when@test:
+    twig:
+        strict_variables: true

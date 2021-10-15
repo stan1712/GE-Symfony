@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin • {{ company.name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ company.name }}</h1>
+
+    <table class="uk-table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ company.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ company.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ company.description }}</td>
+            </tr>
+            <tr>
+                <th>Chemin du fichier</th>
+                <td>{{ company.imagePath }}</td>
+            </tr>
+            <tr>
+                <th>Créée le</th>
+                <td>{{ company.createdAt ? company.createdAt|date('d/m/Y à H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="uk-button uk-button-default uk-button-small"><a href="{{ path("company", {name: company.name} ) }}">Retour à l'entreprise</a></button>
+    <button class="uk-button uk-button-default uk-button-small"><a href="{{ path('company_edit', {'id': company.id}) }}">Modifier</a></button>
+    {{ include('company/_delete_form.html.twig') }}
+{% endblock %}

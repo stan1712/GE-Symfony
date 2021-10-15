@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ company.name }}{% endblock %}
+
+{% block body %}
+    <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
+        <div>
+            <h1>{{ company.name }}</h1>
+
+            <h3>Créée le {{ company.createdAt.format('d/m/Y') }}</h3>
+
+            <p>{{ company.description }}</p>
+        </div>
+        <div>
+            <img src="{{ asset(company.imagePath) }}" alt={{ company.name }} />
+        </div>
+    </div>
+
+    <hr>
+    
+    <div>
+        <button class="uk-button uk-button-default uk-button-small"><a href="{{ path('company_show', {'id': company.id}) }}">Vue administrateur</a></button>
+        <button class="uk-button uk-button-default uk-button-small"><a href="{{ path('company_edit', {'id': company.id}) }}">Modifier</a></button>
+        {{ include('company/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

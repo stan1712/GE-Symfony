@@ -1,0 +1,57 @@
+<header>    
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="{{ path('home') }}">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+                        Accueil
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#">Catégories</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            {% for category in categoriesVar.getCategoriesVar %}
+                                <li>
+                                    <a href="{{ path('category', {name: category}) }}">{{ category }}</a>
+                                </li>
+                            {% endfor %}
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="{{ path('category_new') }}">Ajouter une catégorie</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">Entreprises</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            {% for category in companiesVar.getCompaniesVar %}
+                                <li>
+                                    <a href="{{ path('company', {name: category}) }}">{{ category }}</a>
+                                </li>
+                            {% endfor %}
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="{{ path('company_new') }}">Ajouter une entreprise</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="uk-navbar-right">
+
+            <div class="uk-navbar-item">
+                <form action="{{ path('home') }}" method="get">
+                    <input type="text" name="query" class="uk-input uk-form-width-small" placeholder="Entreprise">
+                    <input type="submit" value="Rechercher" class="uk-button uk-button-default">
+                </form>
+            </div>
+
+        </div>
+    </nav>
+
+</header>
